@@ -1,0 +1,5 @@
+SIT725 Task 2.2P — Brief Explanation
+
+In this task, I created a simple web server using Node.js and Express. The server uses the Express static middleware to serve an HTML webpage from the public folder. I created a GET endpoint named /api/add that accepts two numbers through URL query parameters and returns their sum as a JSON response. I also added input validation so that the server displays an appropriate error when invalid values are provided.
+
+To extend the basic requirement, I created a POST endpoint called /api/calculate. This endpoint supports addition, subtraction, multiplication and division. The webpage connects to the GET API using JavaScript fetch(), allowing the user to enter two numbers and view the result directly in the browser. The project also contains a README file with installation, execution, endpoint and GitHub instructions.

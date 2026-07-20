@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIT725 Express Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <p class="task-label">SIT725 — Task 2.2P</p>
+      <h1>Express Web Server Calculator</h1>
+      <p>
+        This page is served from the <code>public</code> folder using Express.
+        Enter two numbers below to call the REST API on the server.
+      </p>
+
+      <div class="form-grid">
+        <label>
+          First number
+          <input id="num1" type="number" step="any" value="10">
+        </label>
+
+        <label>
+          Second number
+          <input id="num2" type="number" step="any" value="5">
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button type="button" onclick="addNumbers()">Add Numbers</button>
+        <button type="button" class="secondary" onclick="testServer()">Test Server</button>
+      </div>
+
+      <div id="result" class="result" aria-live="polite">
+        Result will appear here.
+      </div>
+
+      <div class="endpoint-box">
+        <strong>GET endpoint example:</strong>
+        <code>/api/add?num1=10&amp;num2=5</code>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    async function addNumbers() {
+      const num1 = document.getElementById("num1").value;
+      const num2 = document.getElementById("num2").value;
+      const resultBox = document.getElementById("result");
+
+      resultBox.textContent = "Calculating...";
+
+      try {
+        const response = await fetch(
+          `/api/add?num1=${encodeURIComponent(num1)}&num2=${encodeURIComponent(num2)}`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || "Request failed.");
+        }
+
+        resultBox.textContent =
+          `${data.num1} + ${data.num2} = ${data.result}`;
+      } catch (error) {
+        resultBox.textContent = `Error: ${error.message}`;
+      }
+    }
+
+    async function testServer() {
+      const resultBox = document.getElementById("result");
+      resultBox.textContent = "Testing server...";
+
+      try {
+        const response = await fetch("/api/hello");
+        const data = await response.json();
+        resultBox.textContent = data.message;
+      } catch (error) {
+        resultBox.textContent = `Error: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

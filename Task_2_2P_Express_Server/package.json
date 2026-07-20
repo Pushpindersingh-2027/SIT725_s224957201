@@ -1,0 +1,16 @@
+{
+  "name": "sit725-task-2-2p-express-server",
+  "version": "1.0.0",
+  "description": "Simple Express web server and calculator REST API for SIT725 Task 2.2P",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
