@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ShiftSync</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="nav-wrapper teal">
+
+        <a href="#"
+           class="brand-logo center">
+            ShiftSync
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h4>Smart Shift & Study Planner</h4>
+
+    <p>
+        Manage your classes, work shifts and personal
+        commitments in one place.
+    </p>
+
+
+    <div class="card">
+
+        <div class="card-content">
+
+            <span class="card-title">
+                Add Schedule Event
+            </span>
+
+
+            <div class="input-field">
+
+                <input
+                    id="title"
+                    type="text"
+                >
+
+                <label for="title">
+                    Event Title
+                </label>
+
+            </div>
+
+
+            <div class="input-field">
+
+                <select id="eventType">
+
+                    <option
+                        value=""
+                        disabled
+                        selected>
+                        Choose Event Type
+                    </option>
+
+                    <option value="Class">
+                        Class
+                    </option>
+
+                    <option value="Work Shift">
+                        Work Shift
+                    </option>
+
+                    <option value="Personal">
+                        Personal
+                    </option>
+
+                </select>
+
+                <label>Event Type</label>
+
+            </div>
+
+
+            <div class="input-field">
+
+                <input
+                    id="date"
+                    type="date"
+                >
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="input-field col s6">
+
+                    <input
+                        id="startTime"
+                        type="time"
+                    >
+
+                    <label class="active">
+                        Start Time
+                    </label>
+
+                </div>
+
+
+                <div class="input-field col s6">
+
+                    <input
+                        id="endTime"
+                        type="time"
+                    >
+
+                    <label class="active">
+                        End Time
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-field">
+
+                <input
+                    id="location"
+                    type="text"
+                >
+
+                <label for="location">
+                    Location
+                </label>
+
+            </div>
+
+
+            <div class="input-field">
+
+                <select id="priority">
+
+                    <option value="Normal">
+                        Normal
+                    </option>
+
+                    <option value="Important">
+                        Important
+                    </option>
+
+                    <option value="Critical">
+                        Critical
+                    </option>
+
+                </select>
+
+                <label>Priority</label>
+
+            </div>
+
+
+            <div class="input-field">
+
+                <textarea
+                    id="notes"
+                    class="materialize-textarea">
+                </textarea>
+
+                <label for="notes">
+                    Notes
+                </label>
+
+            </div>
+
+
+            <button
+                class="btn teal"
+                onclick="addEvent()">
+
+                Add Event
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <h4>My Schedule</h4>
+
+    <div
+        id="eventList"
+        class="row">
+    </div>
+
+</div>
+
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
